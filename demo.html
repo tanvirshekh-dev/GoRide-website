@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoSwift — Ride Sharing</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    // Tailwind + DaisyUI config via CDN
+    tailwind.config = {
+      theme: { extend: { container: { center: true, padding: "1rem" } } },
+      plugins: [daisyui],
+      daisyui: { themes: ["light", "dark", "corporate", "emerald"] },
+    };
+  </script>
+  <style>
+    .hero-overlay-gradient { background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 50%, rgba(0,0,0,.6) 100%); }
+  </style>
+</head>
+<body class="bg-base-100 text-base-content">
+  <!-- Sticky Navbar + Theme toggle -->
+  <header class="navbar sticky top-0 z-50 bg-base-100/90 backdrop-blur border-b border-base-200">
+    <div class="navbar-start">
+      <a class="btn btn-ghost text-xl font-black tracking-tight">GoSwift</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal gap-1">
+        <li><a href="#hero">Book</a></li>
+        <li><a href="#ride-types">Ride Types</a></li>
+        <li><a href="#map-eta">Live ETA</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end gap-2">
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input id="themeToggle" type="checkbox" />
+        <!-- sun icon -->
+        <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17l-1.41 1.41L5.64 20.8l1.41-1.41L5.64 17zm12.72 0l-1.41 1.41 1.41 1.41 1.41-1.41L18.36 17zM12 4a1 1 0 011 1V7a1 1 0 11-2 0V5a1 1 0 011-1zm0 10a4 4 0 100-8 4 4 0 000 8zm8-3h-2a1 1 0 110-2h2a1 1 0 110 2zM6 11H4a1 1 0 110-2h2a1 1 0 110 2zm11.36-6.36l-1.41 1.41L17.36 7.5l1.41-1.41-1.41-1.45zM6.64 3.79L5.23 5.2 6.64 6.6l1.41-1.41L6.64 3.8z"/></svg>
+        <!-- moon icon -->
+        <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+      </label>
+      <a class="btn btn-primary">Download App</a>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HERO + QUICK BOOKING (Step 1) -->
+  <section id="hero" class="hero min-h-[85vh]" style="background-image:url('https://images.unsplash.com/photo-1544731612-de7f96afe55f?q=80&w=1920&auto=format&fit=crop');">
+    <div class="hero-overlay hero-overlay-gradient"></div>
+    <div class="hero-content text-neutral-content px-4">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Get there fast, safe, and easy</h1>
+        <p class="mt-3 text-lg opacity-90">Book a ride anywhere in minutes. Transparent pricing, verified drivers, and 24/7 support.</p>
+        <div class="mt-6 card bg-base-100/95 text-base-content shadow-2xl">
+          <div class="card-body grid md:grid-cols-2 gap-3">
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Pickup</span></div>
+              <input id="pickup" type="text" placeholder="e.g., Dhanmondi 32" class="input input-bordered w-full" />
+            </label>
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Drop-off</span></div>
+              <input id="dropoff" type="text" placeholder="e.g., Gulshan 2" class="input input-bordered w-full" />
+            </label>
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Date & Time</span></div>
+              <input id="when" type="datetime-local" class="input input-bordered w-full" />
+            </label>
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Passengers</span></div>
+              <select id="seats" class="select select-bordered">
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+              </select>
+            </label>
+            <div class="md:col-span-2 flex items-center gap-3">
+              <button id="findRide" class="btn btn-primary btn-lg grow">Find Ride</button>
+              <div id="quote" class="text-sm opacity-80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: RIDE TYPES (Step 2) -->
+  <section id="ride-types" class="py-16">
+    <div class="container">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Choose the right ride for you</h2>
+        <p class="mt-2 opacity-80">From budget-friendly to premium comfort.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Economy -->
+        <div class="card bg-base-200 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop" alt="Economy car" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">Economy</h3>
+            <p>Affordable rides for everyday trips.</p>
+            <div class="card-actions justify-between items-center">
+              <div class="badge badge-outline">AC</div>
+              <div class="badge badge-outline">1-3 seats</div>
+              <button class="btn btn-sm">Select</button>
+            </div>
+          </div>
+        </div>
+        <!-- Premium -->
+        <div class="card bg-base-200 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Premium car" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">Premium</h3>
+            <p>Newer cars, top-rated drivers, extra comfort.</p>
+            <div class="card-actions justify-between items-center">
+              <div class="badge badge-outline">Wi‑Fi</div>
+              <div class="badge badge-outline">1-3 seats</div>
+              <button class="btn btn-sm">Select</button>
+            </div>
+          </div>
+        </div>
+        <!-- XL -->
+        <div class="card bg-base-200 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1ae?q=80&w=1200&auto=format&fit=crop" alt="XL car/van" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">XL</h3>
+            <p>More space for groups & luggage.</p>
+            <div class="card-actions justify-between items-center">
+              <div class="badge badge-outline">6 seats</div>
+              <div class="badge badge-outline">Big trunk</div>
+              <button class="btn btn-sm">Select</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LIVE ETA + MAP MOCK (Step 3) -->
+  <section id="map-eta" class="py-16 bg-base-200">
+    <div class="container grid lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold">Live ETA & real-time tracking</h2>
+        <p class="mt-2 opacity-80">See your driver on the map, share your trip, and get precise arrival times.</p>
+        <ul class="mt-6 space-y-3">
+          <li class="flex items-start gap-3"><span class="badge badge-success">Live</span><span>Track driver location with second-by-second updates.</span></li>
+          <li class="flex items-start gap-3"><span class="badge badge-info">Share</span><span>Share your ride link with friends & family.</span></li>
+          <li class="flex items-start gap-3"><span class="badge badge-warning">Smart ETA</span><span>Traffic-aware arrival time prediction.</span></li>
+        </ul>
+        <!-- mini driver list -->
+        <div class="mt-6 join">
+          <div class="avatar placeholder join-item">
+            <div class="bg-neutral text-neutral-content rounded-full w-10">
+              <span>AK</span>
+            </div>
+          </div>
+          <div class="avatar placeholder join-item">
+            <div class="bg-neutral text-neutral-content rounded-full w-10">
+              <span>SR</span>
+            </div>
+          </div>
+          <div class="avatar placeholder join-item">
+            <div class="bg-neutral text-neutral-content rounded-full w-10">
+              <span>MT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow-xl">
+        <figure>
+          <img class="w-full h-[360px] object-cover" src="https://images.unsplash.com/photo-1465447142348-e9952c393450?q=80&w=1600&auto=format&fit=crop" alt="Map mockup" />
+        </figure>
+        <div class="card-body">
+          <div class="stats stats-vertical lg:stats-horizontal shadow">
+            <div class="stat"><div class="stat-title">Nearby drivers</div><div class="stat-value text-primary">12</div></div>
+            <div class="stat"><div class="stat-title">Avg. pickup</div><div class="stat-value">3 min</div></div>
+            <div class="stat"><div class="stat-title">On-time</div><div class="stat-value text-secondary">98%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SAFETY & TRUST (Step 4) -->
+  <section id="safety" class="py-16">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold">Safety first, always</h2>
+          <p class="mt-2 opacity-80">Every driver is verified with national ID & background checks. Emergency support is one tap away.</p>
+          <div class="grid md:grid-cols-3 gap-4 mt-6">
+            <div class="card bg-base-200 p-4"><span class="font-bold">Verified IDs</span><p class="opacity-80 text-sm">KYC & face match</p></div>
+            <div class="card bg-base-200 p-4"><span class="font-bold">SOS Button</span><p class="opacity-80 text-sm">24/7 hotline</p></div>
+            <div class="card bg-base-200 p-4"><span class="font-bold">Ride PIN</span><p class="opacity-80 text-sm">Match your driver</p></div>
+          </div>
+        </div>
+        <div class="card bg-base-200 shadow-xl">
+          <figure>
+            <img class="w-full h-[320px] object-cover" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="Safety team" />
+          </figure>
+          <div class="card-body">
+            <div class="stats shadow">
+              <div class="stat"><div class="stat-title">Drivers verified</div><div class="stat-value">100%</div></div>
+              <div class="stat"><div class="stat-title">Incident rate</div><div class="stat-value text-success">0.03%</div></div>
+              <div class="stat"><div class="stat-title">Support time</div><div class="stat-value">< 60s</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PRICING ESTIMATOR (Step 5) -->
+  <section id="pricing" class="py-16 bg-base-200">
+    <div class="container">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Instant price estimate</h2>
+        <p class="mt-2 opacity-80">Transparent fares. No surprises.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body space-y-4">
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Ride Type</span></div>
+              <select id="rideType" class="select select-bordered">
+                <option value="economy">Economy</option>
+                <option value="premium">Premium</option>
+                <option value="xl">XL</option>
+              </select>
+            </label>
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Distance (km)</span></div>
+              <input id="km" type="range" min="1" max="50" value="7" class="range range-primary" />
+              <div class="w-full flex justify-between text-xs px-1"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span></div>
+            </label>
+            <label class="form-control w-full">
+              <div class="label"><span class="label-text">Time (min)</span></div>
+              <input id="mins" type="range" min="5" max="120" value="20" class="range range-secondary" />
+              <div class="w-full flex justify-between text-xs px-1"><span>5</span><span>30</span><span>60</span><span>90</span><span>120</span></div>
+            </label>
+            <div class="alert">
+              <span id="fareText">Estimated fare: —</span>
+            </div>
+            <button id="bookNow" class="btn btn-primary">Book this ride</button>
+          </div>
+        </div>
+        <div class="card">
+          <figure>
+            <img class="w-full h-[340px] object-cover" src="https://images.unsplash.com/photo-1519923834699-ef0b7cde471f?q=80&w=1600&auto=format&fit=crop" alt="City traffic" />
+          </figure>
+          <div class="card-body">
+            <ul class="steps steps-vertical lg:steps-horizontal">
+              <li class="step step-primary">Enter distance</li>
+              <li class="step step-primary">Pick a ride</li>
+              <li class="step">See your fare</li>
+              <li class="step">Confirm & go</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TESTIMONIALS + CTA + FAQ (Step 6) -->
+  <section id="testimonials" class="py-16">
+    <div class="container">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Loved by riders across Dhaka</h2>
+        <p class="mt-2 opacity-80">Real stories from our community.</p>
+      </div>
+
+      <div class="carousel w-full rounded-2xl shadow-xl">
+        <div id="item1" class="carousel-item w-full">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop" class="w-full object-cover h-[360px]" alt="Happy rider 1" />
+        </div>
+        <div id="item2" class="carousel-item w-full">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1600&auto=format&fit=crop" class="w-full object-cover h-[360px]" alt="Happy rider 2" />
+        </div>
+        <div id="item3" class="carousel-item w-full">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1600&auto=format&fit=crop" class="w-full object-cover h-[360px]" alt="Happy rider 3" />
+        </div>
+      </div>
+      <div class="flex w-full justify-center gap-2 py-2">
+        <a href="#item1" class="btn btn-xs">1</a>
+        <a href="#item2" class="btn btn-xs">2</a>
+        <a href="#item3" class="btn btn-xs">3</a>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mt-10 items-start">
+        <!-- FAQ -->
+        <div class="space-y-3">
+          <div class="collapse collapse-arrow bg-base-200">
+            <input type="checkbox" />
+            <div class="collapse-title text-lg font-medium">How do I become a driver?</div>
+            <div class="collapse-content"><p>Apply in the app, upload documents, and complete a quick onboarding.</p></div>
+          </div>
+          <div class="collapse collapse-arrow bg-base-200">
+            <input type="checkbox" />
+            <div class="collapse-title text-lg font-medium">Can I schedule rides?</div>
+            <div class="collapse-content"><p>Yes, book rides up to 7 days in advance from the hero form.</p></div>
+          </div>
+          <div class="collapse collapse-arrow bg-base-200">
+            <input type="checkbox" />
+            <div class="collapse-title text-lg font-medium">What if I cancel?</div>
+            <div class="collapse-content"><p>Free cancellation within 2 minutes; small fee after that.</p></div>
+          </div>
+        </div>
+        <!-- CTA -->
+        <div class="card bg-primary text-primary-content shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title text-3xl">Ready to ride?</h3>
+            <p>Join thousands who move with GoSwift every day.</p>
+            <div class="join">
+              <input type="text" placeholder="Enter phone or email" class="input join-item" />
+              <button class="btn join-item">Get the link</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+    <aside>
+      <p class="font-bold">GoSwift Ltd.</p>
+      <p>© <span id="year"></span> All rights reserved.</p>
+    </aside>
+  </footer>
+
+  <!-- JS: basic interactivity for estimate + theme -->
+  <script>
+    const km = document.getElementById('km');
+    const mins = document.getElementById('mins');
+    const rideType = document.getElementById('rideType');
+    const fareText = document.getElementById('fareText');
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    function calcFare() {
+      const d = parseFloat(km.value);
+      const t = parseFloat(mins.value);
+      const base = { economy: 45, premium: 70, xl: 90 }[rideType.value]; // base BDT
+      const perKm = { economy: 22, premium: 35, xl: 40 }[rideType.value];
+      const perMin = { economy: 2.5, premium: 3.5, xl: 4 }[rideType.value];
+      const surge = 1.0; // you can tweak this
+      const estimate = Math.max(base, (base + d * perKm + t * perMin) * surge);
+      fareText.textContent = `Estimated fare: ৳${estimate.toFixed(0)} BDT`;
+    }
+
+    [km, mins, rideType].forEach(el => el.addEventListener('input', calcFare));
+    calcFare();
+
+    // Hero quick quote on Find Ride
+    document.getElementById('findRide').addEventListener('click', () => {
+      const from = document.getElementById('pickup').value || 'Your pickup';
+      const to = document.getElementById('dropoff').value || 'your destination';
+      document.getElementById('quote').textContent = `Looking for rides from ${from} to ${to}…`;
+      window.location.hash = '#pricing';
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    themeToggle.addEventListener('change', () => {
+      const isDark = themeToggle.checked;
+      html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
