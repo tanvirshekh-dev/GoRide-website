@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- font awesome cdn -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <body>
+    <!-- navbar part start -->
+    <header class="text-gray-600 body-font bg-gray-200 fixed w-full z-10">
+      <div
+        class="container mx-auto flex flex-wrap p-5 justify-between md:flex-row items-center"
+      >
+        <div class="nav-logo">
+          <a
+            class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
+            <img src="./images/logo.png" alt="" class="cursor-pointer" />
+            <span class="ml-3 text-2xl font-bold">GoRide</span>
+          </a>
+        </div>
+
+        <div
+          class="nav-links md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <nav
+            class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center md:block hidden"
+          >
+            <a
+              href="./index.html"
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Home</a
+            >
+            <a
+              href="./find.html"
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Find Ride</a
+            >
+            <a
+              href="./ride-type.html"
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Ride Type</a
+            >
+            <a
+              href="./services.html"
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Services</a
+            >
+            <a
+              href="./safety.html"
+              class="mr-5 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Safety</a
+            >
+          </nav>
+        </div>
+
+        <div class="nav-right">
+          <i class="fa-solid fa-user mr-4 text-xl cursor-pointer"></i>
+          <a
+            href="sign-in.html"
+            class="inline-flex items-center bg-[#4a00ff] border-0 py-2 px-5 focus:outline-none text-white font-medium text-xl rounded text-base mt-0 md:mt-0"
+            >Sign In</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- navbar part end -->
+
+    <!-- Offer ride section start -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mt-16 mb-12">
+          <h1
+            class="sm:text-5xl text-2xl title-font mb-4 text-gray-900 font-bold"
+          >Offer a Ride</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Share your journey and help others reach their destination</p>
+        </div>
+        
+
+        <section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center justify-between">
+      <div class="lg:w-3/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+        <div class="relative mb-4">
+          <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
+          <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+          <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+        <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+      </div>
+    <div class="lg:w-2/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+      <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
+      <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+    </div>
+    
+  </div>
+</section>
+      </div>
+    </section>
+    <!-- Offer ride section end -->
+
+    <!-- footer section start -->
+    <footer class="text-white bg-black">
+      <div
+        class="footer-container grid grid-cols-1 text-center md:text-start md:grid-cols-4 container mx-auto px-5 py-24"
+      >
+        <div
+          class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <img src="./images/logo.png" alt="" />
+            <span class="ml-3 text-2xl text-white">GoRide</span>
+          </a>
+          <p class="mt-3 text-xl text-white">
+            Making transportation accessible, safe, and convenient for everyone.
+          </p>
+        </div>
+
+        <div class="w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Riders
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">How it works</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Pricing</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Safety</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Drivers
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">Drive with us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Requirements</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Earnings</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Company
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300 w-full">About us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Contact</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Support</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+
+      <div class="bg-black">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-white space-x-14"
+          >
+            <i class="fa-brands fa-square-facebook text-white text-3xl"></i>
+            <i class="fa-brands fa-square-twitter text-white text-3xl"></i>
+            <i class="fa-brands fa-youtube text-white text-3xl"></i>
+            <i class="fa-brands fa-square-linkedin text-white text-3xl"></i>
+            <i class="fa-solid fa-location-dot text-white text-3xl"></i>
+          </a>
+
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-5"
+          >
+            <h2 class="text-white text-2xl font-semibold cursor-pointer">
+              <i class="fa-solid fa-globe text-white text-xl"></i> English
+            </h2>
+            <h2 class="text-white text-2xl font-semibold cursor-pointer">
+              <i class="fa-solid fa-location-dot text-white text-xl"></i> Dhaka
+            </h2>
+          </span>
+        </div>
+        <hr class="text-white w-[90%] mx-auto" />
+        <p class="text-gray-500 font-medium text-center text-xl py-10">
+          All rights reserved by GoRide. @2025 GoRide
+        </p>
+      </div>
+    </footer>
+    <!-- footer section end -->
+  </body>
+</html>
