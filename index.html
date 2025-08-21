@@ -21,7 +21,7 @@
   <body>
     <!-- hero section start -->
     <!-- navbar part start -->
-    <header class="text-gray-600 body-font">
+    <header class="text-gray-600 body-font bg-gray-200 fixed w-full z-10">
       <div
         class="container mx-auto flex flex-wrap p-5 justify-between md:flex-row items-center"
       >
@@ -40,7 +40,7 @@
           <nav
             class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center md:block hidden"
           >
-            <a
+            <a 
               class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
               >Home</a
             >
@@ -80,7 +80,7 @@
       <div
         class="container mx-auto flex px-5 py-24 items-center justify-center flex-col"
       >
-        <div class="text-center lg:w-2/3 w-full">
+        <div class="text-center lg:w-2/3 w-full pt-20">
           <h1
             class="title-font sm:text-8xl text-3xl mb-4 font-bold text-gray-900"
           >
@@ -507,7 +507,9 @@
           <div
             class="lg:flex-grow md:w-full lg:pr-24 md:pr-16 flex flex-row md:items-start md:text-left mb-4 md:mb-0 items-center text-center justify-center border border-gray-500 rounded-lg max-w-[650px]"
           >
-            <i class="fa-solid fa-phone  text-gray-300 pt-5 pl-2 mr-3 text-2xl"></i>
+            <i
+              class="fa-solid fa-phone text-gray-300 pt-5 pl-2 mr-3 text-2xl"
+            ></i>
             <div class="safety-cart">
               <h1
                 class="title-font sm:text-xl text-lg mb-2 pt-4 font-medium text-gray-900"
@@ -515,7 +517,8 @@
                 24/7 Support
               </h1>
               <p class="mb-8 leading-relaxed">
-                Emergency assistance and customer support available around the clock.
+                Emergency assistance and customer support available around the
+                clock.
               </p>
             </div>
           </div>
@@ -533,13 +536,16 @@
                 Real-time Tracking
               </h1>
               <p class="mb-8 leading-relaxed">
-                Share your trip details with friends and family for added peace of mind.
+                Share your trip details with friends and family for added peace
+                of mind.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="lg:max-w-lg lg:w-full md:w-full w-5/6 shadow-2xl hover:scale-[1.05] duration-400 ease-in">
+        <div
+          class="lg:max-w-lg lg:w-full md:w-full w-5/6 shadow-2xl hover:scale-[1.05] duration-400 ease-in"
+        >
           <img
             class="object-cover object-center rounded"
             alt="hero"
@@ -549,5 +555,157 @@
       </div>
     </section>
     <!-- safety first section end -->
+
+    <!-- GoRide app section start -->
+    <section class="text-gray-600 body-font container mx-auto">
+      <div class="flex flex-col text-start w-full mb-10 mt-10">
+        <h1
+          class="sm:text-5xl text-2xl font-bold title-font mb-4 text-gray-900"
+        >
+          Get the GoRide Apps
+        </h1>
+      </div>
+
+      <div class="safety-cards flex md:flex-row flex-col mb-10 w-full md:gap-7">
+        <div
+          class="lg:flex-grow md:w-full lg:pr-24 md:pr-16 flex flex-row md:items-start md:text-left mb-4 md:mb-0 items-center text-center justify-center border border-gray-500 rounded-lg max-w-[650px]"
+        >
+          <img src="./images/GoRide_barcode.png" alt="" class="h-56 w-56 p-4" />
+          <div class="safety-cart my-auto">
+            <h1
+              class="title-font sm:text-2xl text-lg mb-2 pt-4 font-medium text-gray-900"
+            >
+              Download the GoRide Apps
+            </h1>
+            <a href="#" class="text-xl"
+              >Scan To Download
+              <i class="fa-solid fa-arrow-right-long pl-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="lg:flex-grow md:w-full lg:pr-24 md:pr-16 flex flex-row md:items-start md:text-left mb-4 md:mb-0 items-center text-center justify-center border border-gray-500 rounded-lg max-w-[650px]"
+        >
+          <img src="./images/GoRide_barcode.png" alt="" class="h-56 w-56 p-4" />
+          <div class="safety-cart my-auto">
+            <h1
+              class="title-font sm:text-2xl text-lg mb-2 pt-4 font-medium text-gray-900"
+            >
+              Download the Driver Apps
+            </h1>
+            <a href="#" class="text-xl"
+              >Scan To Download
+              <i class="fa-solid fa-arrow-right-long pl-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- GoRide app section end -->
+
+    <!-- footer section start -->
+    <footer class="text-white bg-black">
+      <div
+        class="footer-container grid grid-cols-1 text-center md:text-start md:grid-cols-4 container mx-auto px-5 py-24"
+      >
+        <div
+          class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <img src="./images/logo.png" alt="" />
+            <span class="ml-3 text-2xl text-white">GoRide</span>
+          </a>
+          <p class="mt-3 text-xl text-white">
+            Making transportation accessible, safe, and convenient for everyone.
+          </p>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Riders
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">How it works</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Pricing</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Safety</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Drivers
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">Drive with us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Requirements</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Earnings</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Company
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">About us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Contact</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Support</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+
+      <div class="bg-black">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-white space-x-14"
+          >
+            <i class="fa-brands fa-square-facebook text-white text-3xl"></i>
+            <i class="fa-brands fa-square-twitter text-white text-3xl"></i>
+            <i class="fa-brands fa-youtube text-white text-3xl"></i>
+            <i class="fa-brands fa-square-linkedin text-white text-3xl"></i>
+            <i class="fa-solid fa-location-dot text-white text-3xl"></i>
+          </a>
+          
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-5"
+          >
+            <h2 class="text-white text-2xl font-semibold cursor-pointer"><i class="fa-solid fa-globe text-white text-xl"></i> English</h2>
+            <h2 class="text-white text-2xl font-semibold cursor-pointer"><i class="fa-solid fa-location-dot text-white text-xl"></i> Dhaka </h2>
+          </span>
+        </div>
+        <hr class="text-white w-[90%] mx-auto">
+        <p class="text-gray-500 font-medium text-center text-xl py-10"> All rights reserved by GoRide. @2025 GoRide</p>
+      </div>
+    </footer>
+    <!-- footer section end -->
   </body>
 </html>

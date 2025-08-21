@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- font awesome cdn -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+<body>
+      <!-- navbar part start -->
+    <header class="text-gray-600 body-font bg-gray-200 fixed w-full z-10">
+      <div
+        class="container mx-auto flex flex-wrap p-5 justify-between md:flex-row items-center"
+      >
+        <div class="nav-logo">
+          <a
+            class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
+            <img src="./images/logo.png" alt="" class="cursor-pointer" />
+            <span class="ml-3 text-2xl font-bold">GoRide</span>
+          </a>
+        </div>
+
+        <div
+          class="nav-links md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <nav
+            class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center md:block hidden"
+          >
+            <a 
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Home</a
+            >
+            <a
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Find Ride</a
+            >
+            <a
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Ride Type</a
+            >
+            <a
+              class="mr-8 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Services</a
+            >
+            <a
+              class="mr-5 text-lg font-normal cursor-pointer hover:text-black hover:border-b-2"
+              >Safety</a
+            >
+          </nav>
+        </div>
+
+        <div class="nav-right">
+          <i class="fa-solid fa-user mr-4 text-xl cursor-pointer"></i>
+          <a
+            href="#"
+            class="inline-flex items-center bg-[#4a00ff] border-0 py-2 px-5 focus:outline-none text-white font-medium text-xl rounded text-base mt-0 md:mt-0"
+            >Sign In</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- navbar part end -->
+
+    <!-- Chose the ride section start -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="text-center mt-20 mb-20">
+          <h1
+            class="sm:text-5xl text-2xl text-center font-bold text-black title-font mb-4"
+          >
+            Chose the right ride for you
+          </h1>
+          <p
+            class="text-xl leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-600"
+          >
+            From budget-friendly to premium comfort.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6"
+        >
+          <div class="p-4 md:w-1/3 flex flex-col text-start items-center">
+            <div
+              class="flex-grow shadow-xl hover:scale-[1.05]  p-4 rounded-lg duration-400 ease-in"
+            >
+              <img
+                src="./images/chose ride img-01.avif"
+                alt=""
+                class="rounded-md h-[240px]"
+              />
+              <h2
+                class="text-gray-900 text-xl pt-4 title-font font-medium mb-3"
+              >
+                Economy
+              </h2>
+              <p class="leading-relaxed text-base">
+                Affordable rides for everyday trips.
+              </p>
+              <div
+                class="card-actions flex mt-6 mb-2 justify-between items-center"
+              >
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  AC
+                </div>
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  1-3 seats
+                </div>
+                <button class="badge badge-outline font-bold text-lg">
+                  Select
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 md:w-1/3 flex flex-col text-start items-center">
+            <div
+              class="flex-grow shadow-xl hover:scale-[1.05] p-4 rounded-lg duration-400 ease-in"
+            >
+              <img
+                src="./images/chose ride img-02.avif"
+                alt=""
+                class="rounded-md"
+              />
+              <h2
+                class="text-gray-900 text-xl pt-4 title-font font-medium mb-3"
+              >
+                Primary
+              </h2>
+              <p class="leading-relaxed text-base">
+                Luxury and extra comfort, Newer cars, top-rated drivers.
+              </p>
+              <div
+                class="card-actions flex mt-6 mb-2 justify-between items-center"
+              >
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  Wi-Fi
+                </div>
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  1-3 seats
+                </div>
+                <button class="badge badge-outline font-bold text-lg">
+                  Select
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 md:w-1/3 flex flex-col text-start items-center">
+            <div
+              class="flex-grow shadow-xl hover:scale-[1.05] p-4 rounded-lg duration-400 ease-in"
+            >
+              <img
+                src="./images/chose ride img-03.jpg"
+                alt=""
+                class="rounded-md"
+              />
+              <h2
+                class="text-gray-900 text-xl pt-4 title-font font-medium mb-3"
+              >
+                Luxury
+              </h2>
+              <p class="leading-relaxed text-base">
+                Affordable rides for everyday trips.
+              </p>
+              <div
+                class="card-actions flex mt-6 mb-2 justify-between items-center"
+              >
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  AC
+                </div>
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  Wi-Fi
+                </div>
+                <div
+                  class="badge badge-outline outline outline-2 rounded-3xl px-6"
+                >
+                  1-3 seats
+                </div>
+                <button class="badge badge-outline font-bold text-lg">
+                  Select
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Chose the ride section end -->
+
+    <!-- footer section start -->
+    <footer class="text-white bg-black">
+      <div
+        class="footer-container grid grid-cols-1 text-center md:text-start md:grid-cols-4 container mx-auto px-5 py-24"
+      >
+        <div
+          class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <img src="./images/logo.png" alt="" />
+            <span class="ml-3 text-2xl text-white">GoRide</span>
+          </a>
+          <p class="mt-3 text-xl text-white">
+            Making transportation accessible, safe, and convenient for everyone.
+          </p>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Riders
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">How it works</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Pricing</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Safety</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Drivers
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">Drive with us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Requirements</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Earnings</a>
+            </li>
+          </nav>
+        </div>
+
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2
+            class="title-font font-medium text-white tracking-widest text-2xl mb-3"
+          >
+            Company
+          </h2>
+          <nav class="list-none mb-10 space-y-4">
+            <li>
+              <a class="text-white hover:text-gray-300">About us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Contact</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-gray-300">Support</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+
+      <div class="bg-black">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-white space-x-14"
+          >
+            <i class="fa-brands fa-square-facebook text-white text-3xl"></i>
+            <i class="fa-brands fa-square-twitter text-white text-3xl"></i>
+            <i class="fa-brands fa-youtube text-white text-3xl"></i>
+            <i class="fa-brands fa-square-linkedin text-white text-3xl"></i>
+            <i class="fa-solid fa-location-dot text-white text-3xl"></i>
+          </a>
+          
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-5"
+          >
+            <h2 class="text-white text-2xl font-semibold cursor-pointer"><i class="fa-solid fa-globe text-white text-xl"></i> English</h2>
+            <h2 class="text-white text-2xl font-semibold cursor-pointer"><i class="fa-solid fa-location-dot text-white text-xl"></i> Dhaka </h2>
+          </span>
+        </div>
+        <hr class="text-white w-[90%] mx-auto">
+        <p class="text-gray-500 font-medium text-center text-xl py-10"> All rights reserved by GoRide. @2025 GoRide</p>
+      </div>
+    </footer>
+    <!-- footer section end -->
+</body>
+</html>
